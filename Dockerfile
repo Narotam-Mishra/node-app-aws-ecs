@@ -1,4 +1,4 @@
-FROM node:19.5.0-alpine
+FROM node:lts
 
 # Create app directory
 WORKDIR /app
@@ -7,6 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
+RUN rm -rf node_modules package-lock.json
 RUN npm install
 
 # Copy the rest of the application
